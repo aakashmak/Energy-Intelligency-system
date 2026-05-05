@@ -1,0 +1,64 @@
+# ── Environment variables & secrets — NEVER commit keys ───────────────────────
+.env
+.env.local
+.env.*.local
+.streamlit/secrets.toml
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+venv/
+.venv/
+env/
+
+# ── Logs — generated at runtime, not source code ──────────────────────────────
+*.log
+pipeline.log
+
+# ── Debug / diagnostic scripts — not part of the submission ───────────────────
+debug_eia_columns.py
+debug_supabase.py
+diagnose_eia.py
+debug_gas_processes.py
+diagnose_eia_deep.py
+diagnose_steo_rigs.py
+
+# ── Temp patch files ──────────────────────────────────────────────────────────
+src/forecasting/kpi_upsert_patch.py
+src/forecasting/pipeline_step8_patch.txt
+src/data/db_tail_patch.py
+src/data/quarterly_db_patch.py
+
+# ── Scratch notes — personal working notes, not submission artifacts ──────────
+gas_process_note.txt
+src/forecasting/why_sarima_note.txt
+src/forecasting/model_comparison_why.txt
+
+# ── Claude AI session data & tool internals ──────────────────────────────────
+.claude/
+.agents/
+skills-lock.json
+
+# ── Temp / typo folders ───────────────────────────────────────────────────────
+colordo/
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+
+# ── Node (if any frontend added later) ───────────────────────────────────────
+node_modules/
+.pnp
+.pnp.js
+npm-debug.log*
