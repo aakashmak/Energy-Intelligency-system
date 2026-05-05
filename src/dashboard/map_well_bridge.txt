@@ -1,0 +1,37 @@
+        # ── Production & Forecast chart ───────────────────────────────────────
+        st.markdown(
+            f'<div style="font-weight:600;color:#1E3A5F;font-size:1rem;'
+            f'margin:1.2rem 0 0.4rem;border-left:4px solid {r["color"]};padding-left:0.7rem;">'
+            f'📈 {active} — Production & SARIMA Forecast</div>',
+            unsafe_allow_html=True,
+        )
+        _render_inline_forecast(active, prod_df, fc_df, commodity, selected_year, r["color"])
+
+        # ── Quarterly KPI visualization ───────────────────────────────────────
+        st.markdown(
+            f'<div style="font-weight:600;color:#1E3A5F;font-size:1rem;'
+            f'margin:1.2rem 0 0.4rem;border-left:4px solid {r["color"]};padding-left:0.7rem;">'
+            f'📅 {active} — Quarterly Projected Production · {selected_year}</div>',
+            unsafe_allow_html=True,
+        )
+        _render_inline_quarterly(active, quarterly_df, commodity, selected_year, r["color"])
+
+        # ── Well Economics integration bridge ─────────────────────────────────
+        st.markdown(f"""
+        <div style="background:linear-gradient(135deg,#1E3A5F 0%,#2563EB 100%);
+                    border-radius:8px;padding:1rem 1.4rem;margin-top:1rem;
+                    display:flex;justify-content:space-between;align-items:center;">
+            <div>
+                <div style="color:#F1F5F9;font-weight:700;font-size:0.95rem;">
+                    💰 Model a single well in {active}
+                </div>
+                <div style="color:#93C5FD;font-size:0.8rem;margin-top:0.2rem;">
+                    Region defaults pre-filled based on EIA basin averages
+                </div>
+            </div>
+            <div style="color:#DBEAFE;font-size:0.8rem;text-align:right;">
+                Switch to <b>💰 Well Economics</b> tab →
+            </div>
+        </div>""", unsafe_allow_html=True)
+
+    return active

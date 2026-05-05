@@ -1,0 +1,25 @@
+    # ── Vertical cutoff line drawn as a Scatter trace ─────────────────────────
+    # DO NOT use fig.add_vline() — it calls sum() on the x value internally
+    # which fails with both pd.Timestamp AND date strings in newer pandas/plotly.
+    # Manual Scatter trace with a vertical line shape is the safe alternative.
+    y_min = 0
+    y_max = 1
+    fig.add_trace(go.Scatter(
+        x=[cutoff_ts, cutoff_ts],
+        y=[y_min, y_max],
+        mode="lines",
+        line=dict(color="#94A3B8", width=1.5, dash="dot"),
+        showlegend=False,
+        hoverinfo="skip",
+        yaxis="y",
+    ))
+    # Label the cutoff line with an annotation
+    fig.add_annotation(
+        x=cutoff_ts,
+        y=1,
+        yref="paper",
+        text=f"  {selected_year}",
+        showarrow=False,
+        font=dict(color="#64748B", size=11),
+        xanchor="left",
+    )
